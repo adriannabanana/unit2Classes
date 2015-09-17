@@ -6,20 +6,20 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Write a description of test class DoorTest here.
+ * Write a description of test class VendingMachineTest here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DoorTest
+public class VendingMachineTest
 {
     /** description of instance variable x (add comment for each instance variable) */
     private int x;
 
     /**
-     * Default constructor for objects of class DoorTest
+     * Default constructor for objects of class VendingMachineTest
      */
-    public DoorTest()
+    public VendingMachineTest()
     {
         // initialise instance variables
         x = 0;
@@ -46,13 +46,22 @@ public class DoorTest
     }
     
     @Test
-    public void testCloseMethod()
+    public void testFillUp()
     {
-        Door door = new Door("Door", true);
-        door.close(true);
-        door.toString();
+        VendingMachine machine = new VendingMachine();
+        machine.fillUp(5);
+        assertEquals(5,machine.getCanCount(),1E-6);
+        machine.fillUp(3);
+        assertEquals(8,machine.getCanCount(),1E-6);
     }
-      
     
-    
+    @Test
+    public void testInsertToken()
+    {
+        VendingMachine machine = new VendingMachine();
+        machine.fillUp(5);
+        machine.insertToken();
+        assertEquals(1,machine.getTokenCount(),1E-6);
+        assertEquals(4,machine.getCanCount(),1E-6);
+    }
 }
