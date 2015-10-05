@@ -1,6 +1,7 @@
 import java.awt.Graphics2D;
-
+import java.awt.geom.Ellipse2D;
 import java.awt.Color;
+import java.awt.BasicStroke;
 
 /**
  * A ferris wheel
@@ -19,8 +20,8 @@ public class FerrisWheel
     
     /**
      * Constructs a ferris wheel at the given coordinates
-     * @param x: the x-coordinate of the top left corner of the building
-     * @param y: the y-coordinate of the top left corner of the building
+     * @param x: the x-coordinate of the top left corner of the ferris wheel
+     * @param y: the y-coordinate of the top left corner of the ferris wheel
      * @param aDiameter: the diameter of the outer circle of the ferris wheel
      */
     public FerrisWheel(int x, int y, int aDiameter)
@@ -31,29 +32,34 @@ public class FerrisWheel
     }
 
     /**
-     * Draws a black rectangle (skyscraper)
+     * Draws a ferris wheel (two black circle outlines with two black lines from the 
+     * center to the ground)
      * @param g2: the graphics context
      */
     public void drawFerrisWheel(Graphics2D g2)
     {
-        Ellipse2D.Double circle = new Ellipse2D.Double(
+        Ellipse2D.Double circle = new Ellipse2D.Double(xLeft, yTop, diameter, diameter);
+        g2.setColor(Color.BLACK);
+        g2.setStroke(new BasicStroke(5));
+        g2.draw(circle);
+      
+        g2.setStroke(new BasicStroke(3));
+        Ellipse2D.Double smallerCircle = new Ellipse2D.Double(xLeft+10, yTop+10, diameter-20,diameter-20);
+        g2.draw(smallerCircle);
+        
+        g2.setStroke(new BasicStroke(6));
+        int radius = diameter/2;
+        int xCenter = xLeft + radius;
+        int yCenter = yTop + radius;
+        int yLinesEnd = yTop+diameter;
+        int xFirstLineEnd = xLeft + (radius/2);
+        int xSecondLineEnd = xLeft + (3*radius/2);
+        
+        g2.drawLine(xCenter, yCenter, xFirstLineEnd, yLinesEnd);
+        g2.drawLine(xCenter, yCenter, xSecondLineEnd, yLinesEnd);
     }
     
-    /**
-     * Draws a fancier building...
-     *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return y;
-    }
+    
 
 
 }
