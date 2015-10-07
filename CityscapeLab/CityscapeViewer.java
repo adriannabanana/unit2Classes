@@ -21,14 +21,14 @@ public class CityscapeViewer
         // create and configure the frame (window) for the program
         JFrame frame = new JFrame();
         
-        frame.setSize(800 /* x */, 600 /* y */);
+        frame.setSize(800 /* x */, 500 /* y */);
         frame.setTitle("Cityscape");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         // use the Scanner class to prompt the user for some configurable aspect of the cityscape
         Scanner s = new Scanner(System.in);
-        System.out.println("Is it daytime in the city? If yes, enter true. If no, enter false. ");
-        boolean timeOfDay = s.nextBoolean();
+        System.out.println("Is it daytime or nighttime in the city? ");
+        String timeOfDay = s.next();
         
         
         

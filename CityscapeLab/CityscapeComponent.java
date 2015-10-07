@@ -2,6 +2,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JComponent;
 import java.awt.GradientPaint;
+import java.awt.Color;
 
 /**
  * Class that creates instances of the classes that comprise the cityscape and delegates drawing the
@@ -12,14 +13,15 @@ import java.awt.GradientPaint;
  */
 public class CityscapeComponent extends JComponent
 {
-    // define the objects in your Cityscape as instance variables
-    private boolean timeOfDay;
-    public CityscapeComponent(boolean day)
+    /** Daytime or nighttime */
+    private String timeOfDay;
+    LightSource light = new LightSource(600,100,40);
+    
+    public CityscapeComponent(String day)
     {
         this.timeOfDay = day;
     }
     
-
     /**
      * This method is invoked by the Java Run-Time whenever the component needs to be redrawn.
      * It does not need to be invoked explicitly.
@@ -28,6 +30,19 @@ public class CityscapeComponent extends JComponent
     public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
+        
+        if (timeOfDay.equals("daytime"))
+        {
+            Sky sky = new Sky(Color.CYAN);
+            sky.skyGradient(g2);
+            light.drawSun(g2);
+        }
+        if (timeOfDay.equals("nighttime"))
+        {
+            Sky sky = new Sky(Color.BLUE);
+            sky.skyGradient(g2);
+            light.drawMoon(g2);
+        }
         
         Skyscraper building = new Skyscraper(60,175,70,240);
         building.drawRectangle(g2);
@@ -43,28 +58,7 @@ public class CityscapeComponent extends JComponent
         
         Skyscraper building2Part = new Skyscraper(535,150,40,80);
         building2Part.drawRectangle(g2);
-        
-        if (day = true)
-        {
-            //draw the sun
-            //make the sky light
-            // Color color1 = getBackground();
-//         Color color2 = color1.darker();
-//         int w = getWidth();
-//         int h = getHeight(); 
-//         GradientPaint gp = new GradientPaint(
-//                 0, 0, color1,
-//                 0, h, color2);
-// 
-//         g2d.setPaint(gp);
-//         g2d.fillRect(0, 0, w, h);
-        }
-        else
-        {
-            //draw the moon
-            //make the sky dark
-        }
-
+ 
     }
     
 
@@ -77,6 +71,14 @@ public class CityscapeComponent extends JComponent
         // update the objects in the cityscape so they are animated
         // ...
         
+        if (timeOfDay.equals("daytime"))
+        {
+            light.sunMove();
+        }
+        if (timeOfDay.equals("nighttime"))
+        {
+            light.moonMove();
+        }
         
         
         // request that the Java Runtime repaints this component by invoking its paintComponent method
