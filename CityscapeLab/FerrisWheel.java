@@ -8,6 +8,7 @@ import java.awt.BasicStroke;
  * 
  * @author Adrianna Fu 
  * @version 10//15
+ * 
  */
 public class FerrisWheel
 {
@@ -32,8 +33,7 @@ public class FerrisWheel
     }
 
     /**
-     * Draws a ferris wheel (two black circle outlines with two black lines from the 
-     * center to the ground)
+     * Draws a ferris wheel 
      * @param g2: the graphics context
      */
     public void drawFerrisWheel(Graphics2D g2)
@@ -58,8 +58,5 @@ public class FerrisWheel
         g2.drawLine(xCenter, yCenter, xFirstLineEnd, yLinesEnd);
         g2.drawLine(xCenter, yCenter, xSecondLineEnd, yLinesEnd);
     }
-    
-    
-
 
 }
