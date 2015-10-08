@@ -5,7 +5,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.BasicStroke;
 
 /**
- * A tall building with windows on it
+ * A dome building
  * 
  * @author Adrianna Fu 
  * @version 10/1/15
@@ -20,6 +20,7 @@ public class DomeBuilding
     private int width;
     /** The height of the building */ 
     private int height;
+    
     /**
      * Constructs a dome building at the given coordinates
      * @param x: the x-coordinate of the top left corner of the building
@@ -52,12 +53,6 @@ public class DomeBuilding
         int xCenter = xLeft + (width/2);
         g2.setStroke(new BasicStroke(5));
         g2.drawLine(xCenter,yTop-100,xCenter,yTop);
-        
-       
     }
     
-
-    
-
-
 }
