@@ -3,10 +3,10 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 
 /**
- * Write a description of class Sky here.
+ * The color of the sky (cyan/blue to white)
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Adrianna Fu
+ * @version 10/7/15
  */
 public class Sky
 {
@@ -16,7 +16,8 @@ public class Sky
     private Color y;
 
     /**
-     * Default constructor for objects of class Sky
+     * Constructs the sky with white and a given color
+     * @param aColor: one of the colors of the sky
      */
     public Sky(Color aColor)
     {
@@ -25,15 +26,9 @@ public class Sky
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * Fills the window with the gradient sky
+     * @post the window will be a blue/cyan to white gradient
+     * @param g2: the graphics context
      */
     public void skyGradient(Graphics2D g2)
     {
@@ -44,5 +39,4 @@ public class Sky
         g2.fillRect(0,0,w,h);
     }
     
-
 }
