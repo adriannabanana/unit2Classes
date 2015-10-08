@@ -16,6 +16,7 @@ public class LightSource
     private int yTop;
     /** The diameter of the circle */
     private int diameter;
+    
     /**
      * Default constructor for objects of class LightSource
      * @param x the x-coordinate of the top-left corner
@@ -52,25 +53,19 @@ public class LightSource
     
     /**
      * Makes the moon move across the screen
-     * @param g2 the graphics context
      */
-    public void moonMove(Graphics2D g2)
+    public void moonMove()
     {
-        xLeft -= 4;
-        Ellipse2D.Double moon = new Ellipse2D.Double(xLeft,yTop,diameter,diameter);
-        g2.setColor(Color.WHITE);
-        g2.fill(moon);
+        xLeft -= 10;
+        yTop -= 2;        
     }
     
     /**
-     * Makes the moon move across the screen
-     * @param g2 the graphics context
+     * Makes the sun move across the screen
      */
-    public void sunMove(Graphics2D g2)
+    public void sunMove()
     {
-        xLeft -= 4;
-        Ellipse2D.Double sun = new Ellipse2D.Double(xLeft,yTop,diameter,diameter);
-        g2.setColor(Color.YELLOW);
-        g2.fill(sun);
+        xLeft -= 10;
+        yTop -= 2;
     }
 }
