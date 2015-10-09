@@ -1,10 +1,9 @@
-// pg 66, 117, 98
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Color;
 
 /**
- * A tall building with windows on it
+ * A tall building 
  * 
  * @author Adrianna Fu 
  * @version 10/1/15
@@ -19,6 +18,7 @@ public class Skyscraper
     private int width;
     /** The height of the rectangle */ 
     private int height;
+    
     /**
      * Constructs a skyscraper at the given coordinates
      * @param x: the x-coordinate of the top left corner of the building
@@ -45,22 +45,4 @@ public class Skyscraper
         g2.setColor(Color.BLACK);
         g2.fill(skyscraper);
     }
-    
-    /**
-     * Draws a fancier building...
-     *
-     * @pre     preconditions for the method
-     *          (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *          (what the method guarantees upon completion)
-     * @param   y   description of parameter y
-     * @return  description of the return value
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return y;
-    }
-
-
 }
